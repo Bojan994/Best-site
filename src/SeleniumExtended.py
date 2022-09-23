@@ -11,8 +11,6 @@ class SeleniumExtended:
         timeout = timeout if timeout else self.default_timeout
         WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator)).send_keys(text)
 
-
-
-    def wait_and_click(self,locator,timeout=None):
+    def wait_and_click(self, locator, timeout=None):
         timeout = timeout if timeout else self.default_timeout
-        WebDriverWait(self.driver,timeout).until(EC.visibility_of_element_located(locator)).click()
+        WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator)).click()
