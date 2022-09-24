@@ -25,3 +25,5 @@ class MyAccountSignedOut(MyAccountSignedOutLocator):
 
     def click_login_button(self):
         self.sl.wait_and_click(self.LOGIN_BUTTON)
+
+    def wait_until_error_is_displayed(self,expected_error):self.sl.wait_until_element_contains_text(self.ERROR_MESSAGE_NON_EXISTING_USER,expected_error)
