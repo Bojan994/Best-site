@@ -19,3 +19,4 @@ class TestLoginNegative:
         my_account.click_login_button()
         expected_error= "Error: The username Bojan Stanisin is not registered on this site. If you are unsure of your username, try your email address instead."
         my_account.wait_until_error_is_displayed(expected_error)
+
