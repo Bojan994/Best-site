@@ -4,6 +4,7 @@ import pytest
 class TestEndToEndCheckOutGuestUser:
 
     def test_end_to_end_checkout_guest_user(self):
+        pass
         # go to homepage
         # add 1 item to cart
         # apply free coupon
