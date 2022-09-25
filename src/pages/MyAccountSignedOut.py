@@ -27,3 +27,12 @@ class MyAccountSignedOut(MyAccountSignedOutLocator):
         self.sl.wait_and_click(self.LOGIN_BUTTON)
 
     def wait_until_error_is_displayed(self,expected_error):self.sl.wait_until_element_contains_text(self.ERROR_MESSAGE_NON_EXISTING_USER,expected_error)
+
+    def input_register_email(self,email):
+        self.sl.wait_and_input_text(self.REGISTER_EMAIL,email)
+
+    def input_register_password(self,password):
+        self.sl.wait_and_input_text(self.REGISTER_PASSWORD,password)
+
+    def click_register_button(self):
+        self.sl.wait_and_click(self.REGISTER_BUTTON)
