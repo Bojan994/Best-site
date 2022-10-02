@@ -24,3 +24,7 @@ class SeleniumExtended:
         WebDriverWait(self.driver,timeout).until(EC.visibility_of_element_located(locator))
 
 
+
+
+
+
