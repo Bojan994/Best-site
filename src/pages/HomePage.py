@@ -16,4 +16,4 @@ class HomePage(HomePageLocators):
 
     def click_add_to_cart_button(self):
         self.sl.wait_and_click(self.ADD_TO_CART_BUTTON)
-        time.sleep(4)
+
