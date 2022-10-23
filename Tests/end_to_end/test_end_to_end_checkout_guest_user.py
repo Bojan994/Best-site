@@ -7,6 +7,7 @@ from src.pages.HomePage import HomePage
 from src.pages.CartPage import CartPage
 from src.pages.CheckoutPage import CheckoutPage
 from src.pages.OrederReceivedPage import OrderReceivedPage
+from src.helpers.database_helpers import get_order_from_database
 
 
 @pytest.mark.usefixtures("init_driver")
@@ -14,8 +15,8 @@ class TestEndToEndCheckOutGuestUser:
     @pytest.mark.tcid33
     def test_end_to_end_checkout_guest_user(self):
         cart_page = CartPage(self.driver)
-        checkout_page=CheckoutPage(self.driver)
-        order_received_page=OrderReceivedPage(self.driver)
+        checkout_page = CheckoutPage(self.driver)
+        order_received_page = OrderReceivedPage(self.driver)
         # go to homepage
         home_page = HomePage(self.driver)
         home_page.go_to_homepage()
@@ -39,11 +40,17 @@ class TestEndToEndCheckOutGuestUser:
         checkout_page.input_phone()
         checkout_page.input_email()
         # click on place order
+        time.sleep(5)
         checkout_page.click_place_order()
 
         # verify order is received
         order_received_page.verify_order_received_page_loaded()
-
-
+        pdb.set_trace()
 
         # verify that the order is recorded in database
+        order_number = order_received_page.get_order_number()
+        print("******")
+        print(order_number)
+        print("******")
+        db_order =get_order_from_database(order_number)
+        assert db_order
